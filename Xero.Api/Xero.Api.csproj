@@ -25,6 +25,7 @@
     <WarningLevel>4</WarningLevel>
     <LangVersion>5</LangVersion>
     <Prefer32Bit>false</Prefer32Bit>
+    <NoWarn>CS0618;CS0114;CS0219</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
