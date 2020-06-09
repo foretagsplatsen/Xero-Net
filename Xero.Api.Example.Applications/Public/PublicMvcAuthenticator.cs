@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Xero.Api.Infrastructure.Interfaces;
 using Xero.Api.Infrastructure.OAuth.Signing;
 
@@ -47,7 +47,7 @@ namespace Xero.Api.Example.Applications.Public
             return GetAuthorizeUrl(requestToken);
         }
 
-        public IToken RetrieveAndStoreAccessToken(string userId, string tokenKey, string verfier, string organisationShortCode)
+        public virtual IToken RetrieveAndStoreAccessToken(string userId, string tokenKey, string verfier, string organisationShortCode)
         {
             var existingAccessToken = Store.Find(userId);
             if (existingAccessToken != null)
@@ -77,5 +77,9 @@ namespace Xero.Api.Example.Applications.Public
 
             return accessToken;
         }
-    }   
+        public virtual bool HasValidAccessToken(string userId)
+        {
+            return Store.Find(userId)?.HasExpired == false;
+        }
+    }
 }
